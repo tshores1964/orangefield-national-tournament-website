@@ -140,6 +140,7 @@
       <li><a href="#home">Home</a></li>
       <li><a href="#gyms">Gyms</a></li>
       <li><a href="#admissions">Admissions</a></li>
+      <li><a href="#vendors">Vendors</a></li>
       <li><a href="#brackets">Brackets</a></li>
       <li><a href="#things-to-do">Things To Do</a></li>
       <li><a href="#map">Map</a></li>
@@ -298,6 +299,34 @@
   </div>
 </section>
 
+<!-- VENDORS -->
+<div class="band">
+<section id="vendors">
+  <div class="section-head">
+    <svg class="arc" viewBox="0 0 46 46" aria-hidden="true"><path d="M6 14 h34 l-3 10 H9z" fill="none" stroke="#F05A1A" stroke-width="4"/><path d="M9 24 v10 h28 v-10" fill="none" stroke="#F05A1A" stroke-width="4"/><line x1="23" y1="6" x2="23" y2="14" stroke="#F05A1A" stroke-width="4"/></svg>
+    <h2>Vendors, Food Trucks &amp; Merchandise</h2>
+  </div>
+  <p class="lede" style="color:var(--maple)">Food trucks, concessions, T-shirt and merchandise vendors, and other tournament vendors will be set up at the gyms throughout the weekend. Vendor names and their gym locations will be posted here as they're confirmed.</p>
+  <div class="card-grid">
+    <div class="card placeholder">
+      <span class="ph-label">Placeholder</span>
+      <h3>Food Trucks</h3>
+      <p>Food truck names, what they serve, and which gym(s) they'll be at will be listed here.</p>
+    </div>
+    <div class="card placeholder">
+      <span class="ph-label">Placeholder</span>
+      <h3>T-Shirts &amp; Merchandise</h3>
+      <p>Official tournament gear and merchandise vendors, with gym location and hours.</p>
+    </div>
+    <div class="card placeholder">
+      <span class="ph-label">Placeholder</span>
+      <h3>Other Vendors</h3>
+      <p>Any additional vendors (photography, crafts, local businesses, etc.), with gym location.</p>
+    </div>
+  </div>
+</section>
+</div>
+
 <!-- BRACKETS -->
 <div class="band">
 <section id="brackets">
@@ -435,6 +464,7 @@
     <div class="map-toggle" data-layer="gyms" data-active="true"><span class="dot" style="background:#14213D"></span>Gyms</div>
     <div class="map-toggle" data-layer="restaurants" data-active="true"><span class="dot" style="background:#C74309"></span>Sponsored Restaurants</div>
     <div class="map-toggle" data-layer="things" data-active="true"><span class="dot" style="background:#2E7D32"></span>Things To Do</div>
+    <div class="map-toggle" data-layer="vendors" data-active="true"><span class="dot" style="background:#8E24AA"></span>Vendors</div>
   </div>
   <div id="tourney-map"></div>
   <p class="map-note">Pin locations are approximate. Sponsored restaurant pins will appear here as sponsors sign on. Use the "Get Directions" links elsewhere on this site for exact turn-by-turn navigation.</p>
@@ -460,6 +490,7 @@
   var gymIcon = dotIcon('#14213D');
   var restIcon = dotIcon('#C74309');
   var thingIcon = dotIcon('#2E7D32');
+  var vendorIcon = dotIcon('#8E24AA');
 
   var gyms = [
     {name:"Orangefield High School", note:"Competition &amp; Auxiliary Gym", lat:30.0561, lng:-93.8517},
@@ -470,6 +501,8 @@
   ];
 
   var restaurants = []; // placeholder — sponsored restaurant pins added here as sponsors sign on
+
+  var vendors = []; // placeholder — food trucks, T-shirt/merch, and other vendor pins added here as they're confirmed, tagged to the gym they'll be at
 
   var things = [
     {name:"Shangri La Botanical Gardens", note:"Orange, TX — free admission", lat:30.0919, lng:-93.7477},
@@ -484,7 +517,7 @@
     {name:"Almosta Ranch / SPAR Waterpark", note:"Sulphur, LA", lat:30.2350, lng:-93.3773}
   ];
 
-  var layers = { gyms: [], restaurants: [], things: [] };
+  var layers = { gyms: [], restaurants: [], things: [], vendors: [] };
 
   gyms.forEach(function(g){
     var m = L.marker([g.lat, g.lng], {icon: gymIcon}).bindPopup('<b>'+g.name+'</b><br>'+g.note);
@@ -497,6 +530,10 @@
   things.forEach(function(t){
     var m = L.marker([t.lat, t.lng], {icon: thingIcon}).bindPopup('<b>'+t.name+'</b><br>'+t.note);
     layers.things.push(m);
+  });
+  vendors.forEach(function(v){
+    var m = L.marker([v.lat, v.lng], {icon: vendorIcon}).bindPopup('<b>'+v.name+'</b><br>'+v.note);
+    layers.vendors.push(m);
   });
 
   Object.keys(layers).forEach(function(key){
