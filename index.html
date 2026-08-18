@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2027 Little Dribblers American Division National Tournament — Orangefield, TX</title>
+<meta name="theme-color" content="#14213D">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --orange:#F05A1A;
+    --orange-dark:#C74309;
+    --navy:#14213D;
+    --navy-deep:#0C1428;
+    --maple:#F6EBD8;
+    --maple-line:#E5D3B4;
+    --white:#FFFFFF;
+    --ink:#22252B;
+    --display:'Anton', 'Arial Narrow', sans-serif;
+    --body:'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    --score:'Orbitron', 'Courier New', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *,*::before,*::after{animation:none!important;transition:none!important;} }
+  body{font-family:var(--body);color:var(--ink);background:var(--maple);line-height:1.6;}
+
+  /* ---------- NAV ---------- */
+  nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:4px solid var(--orange);}
+  .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.6rem 1.25rem;flex-wrap:wrap;gap:.5rem;}
+  .nav-brand{display:flex;align-items:center;gap:.6rem;color:var(--white);text-decoration:none;}
+  .nav-brand svg{width:34px;height:34px;flex-shrink:0;}
+  .nav-brand span{font-family:var(--display);font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;}
+  .nav-links{display:flex;flex-wrap:wrap;gap:.15rem;list-style:none;}
+  .nav-links a{color:var(--maple);text-decoration:none;font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding:.45rem .6rem;border-radius:4px;}
+  .nav-links a:hover,.nav-links a:focus-visible{background:var(--orange);color:var(--white);outline:none;}
+  .nav-links a:focus-visible{box-shadow:0 0 0 2px var(--white);}
+
+  /* ---------- HERO ---------- */
+  header.hero{background:var(--navy) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600"><g fill="none" stroke="%231E2C50" stroke-width="3"><circle cx="450" cy="600" r="180"/><circle cx="450" cy="600" r="60"/><rect x="330" y="440" width="240" height="160"/><path d="M120 600 A 380 380 0 0 1 780 600"/></g></svg>') no-repeat center bottom / cover;
+    color:var(--white);text-align:center;padding:3.5rem 1.25rem 3rem;}
+  .hero-eyebrow{display:inline-block;background:var(--orange);color:var(--white);font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;padding:.35rem .9rem;border-radius:999px;margin-bottom:1.2rem;}
+  .hero h1{font-family:var(--display);font-size:clamp(2.2rem,6vw,4.2rem);line-height:1.05;text-transform:uppercase;letter-spacing:.02em;}
+  .hero h1 .accent{color:var(--orange);}
+  .hero .hosted{margin-top:.9rem;font-size:clamp(1rem,2.5vw,1.25rem);color:var(--maple);}
+  .hero .dates{margin-top:.35rem;font-weight:700;font-size:clamp(1.05rem,2.8vw,1.4rem);color:var(--orange);text-transform:uppercase;letter-spacing:.08em;}
+
+  /* ---------- SCOREBOARD COUNTDOWN ---------- */
+  .scoreboard{max-width:680px;margin:2.2rem auto 0;background:var(--navy-deep);border:3px solid var(--orange);border-radius:12px;padding:1.2rem 1rem 1rem;box-shadow:0 10px 30px rgba(0,0,0,.35);}
+  .scoreboard .sb-label{font-family:var(--body);font-weight:700;letter-spacing:.22em;font-size:.75rem;color:var(--maple);text-transform:uppercase;margin-bottom:.8rem;}
+  .sb-digits{display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;}
+  .sb-cell{background:#060B18;border:1px solid #2A3A63;border-radius:8px;padding:.6rem .4rem .5rem;min-width:88px;}
+  .sb-cell .num{font-family:var(--score);font-size:clamp(1.6rem,5vw,2.4rem);font-weight:800;color:var(--orange);text-shadow:0 0 12px rgba(240,90,26,.55);}
+  .sb-cell .unit{font-size:.65rem;font-weight:700;letter-spacing:.18em;color:#8FA0C6;text-transform:uppercase;margin-top:.2rem;}
+  .hero .cta-row{margin-top:2rem;display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;}
+  .btn{display:inline-block;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.9rem;padding:.8rem 1.5rem;border-radius:6px;text-decoration:none;}
+  .btn-orange{background:var(--orange);color:var(--white);}
+  .btn-orange:hover{background:var(--orange-dark);}
+  .btn-ghost{border:2px solid var(--maple);color:var(--maple);}
+  .btn-ghost:hover{background:var(--maple);color:var(--navy);}
+  .btn:focus-visible{outline:3px solid var(--white);outline-offset:2px;}
+
+  /* ---------- SECTIONS ---------- */
+  section{max-width:1100px;margin:0 auto;padding:3.5rem 1.25rem;}
+  .section-head{display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;}
+  .section-head .arc{flex-shrink:0;width:46px;height:46px;}
+  .section-head h2{font-family:var(--display);font-size:clamp(1.6rem,4vw,2.3rem);text-transform:uppercase;color:var(--navy);letter-spacing:.02em;}
+  .section-head::after{content:"";flex:1;height:3px;background:repeating-linear-gradient(90deg,var(--orange) 0 18px,transparent 18px 28px);border-radius:2px;}
+  .lede{max-width:62ch;font-size:1.05rem;margin-bottom:1.5rem;}
+
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem;}
+  .card{background:var(--white);border:1px solid var(--maple-line);border-radius:10px;padding:1.3rem;box-shadow:0 2px 8px rgba(20,33,61,.06);}
+  .card h3{font-family:var(--display);font-size:1.15rem;text-transform:uppercase;color:var(--navy);margin-bottom:.5rem;letter-spacing:.03em;}
+  .card .tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--navy);color:var(--white);padding:.2rem .55rem;border-radius:4px;margin-bottom:.6rem;}
+  .card ul{list-style:none;}
+  .card li{padding:.3rem 0;border-bottom:1px dashed var(--maple-line);font-size:.95rem;}
+  .card li:last-child{border-bottom:none;}
+  .card a{color:var(--orange-dark);font-weight:600;text-decoration:none;}
+  .card a:hover{text-decoration:underline;}
+
+  .placeholder{border:2px dashed var(--orange);background:#FFF7EF;}
+  .placeholder .ph-label{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-dark);background:#FFE3CF;padding:.2rem .55rem;border-radius:4px;margin-bottom:.6rem;}
+  .placeholder p{color:#6B5B4C;font-size:.95rem;}
+
+  .divisions{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin-top:1.4rem;}
+  .div-chip{background:var(--navy);color:var(--white);border-radius:8px;text-align:center;padding:1rem .5rem;border-bottom:4px solid var(--orange);}
+  .div-chip .name{font-family:var(--display);font-size:1.2rem;text-transform:uppercase;letter-spacing:.04em;}
+  .div-chip .sub{font-size:.75rem;color:var(--maple);margin-top:.2rem;}
+
+  .welcome{background:var(--white);border-left:6px solid var(--orange);border-radius:0 10px 10px 0;padding:1.6rem 1.8rem;margin-top:2rem;box-shadow:0 2px 8px rgba(20,33,61,.06);}
+  .welcome p{max-width:70ch;}
+  .welcome .sig{margin-top:1rem;font-weight:700;color:var(--navy);}
+  .welcome .sig small{display:block;font-weight:400;color:#5A6172;}
+
+  .alt{background:var(--white);}
+  .alt-wrap{background:var(--white);}
+  .band{background:var(--navy);color:var(--white);}
+  .band .section-head h2{color:var(--white);}
+  .band .card{background:var(--navy-deep);border-color:#26365E;color:var(--maple);}
+  .band .card h3{color:var(--white);}
+  .band .card li{border-color:#26365E;}
+  .band .placeholder{background:#1A2647;border-color:var(--orange);}
+  .band .placeholder p{color:#B9C4DD;}
+
+  footer{background:var(--navy-deep);color:var(--maple);padding:2.5rem 1.25rem;text-align:center;border-top:4px solid var(--orange);}
+  .socials{display:flex;justify-content:center;gap:1rem;margin:1rem 0 1.4rem;flex-wrap:wrap;}
+  .socials a{display:inline-flex;align-items:center;gap:.4rem;color:var(--maple);text-decoration:none;font-weight:600;font-size:.9rem;border:1px dashed var(--orange);border-radius:999px;padding:.45rem 1rem;}
+  .socials a:hover{background:var(--orange);color:var(--white);border-style:solid;}
+  footer .contact{font-size:.95rem;line-height:1.8;}
+  footer .contact a{color:var(--orange);text-decoration:none;font-weight:600;}
+  footer .fine{margin-top:1.4rem;font-size:.75rem;color:#7C8AAB;}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#home">
+      <!-- Generic paw mark — replace with official OFLD / Bobcats logo file -->
+      <svg viewBox="0 0 64 64" aria-hidden="true"><g fill="#F05A1A"><ellipse cx="20" cy="18" rx="7" ry="9"/><ellipse cx="44" cy="18" rx="7" ry="9"/><ellipse cx="9" cy="34" rx="6" ry="8"/><ellipse cx="55" cy="34" rx="6" ry="8"/><path d="M32 28c-10 0-19 8-19 17 0 6 5 10 11 10 3 0 5-1 8-1s5 1 8 1c6 0 11-4 11-10 0-9-9-17-19-17z"/></g></svg>
+      <span>Orangefield Nationals '27</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#gyms">Gyms</a></li>
+      <li><a href="#admissions">Admissions</a></li>
+      <li><a href="#brackets">Brackets</a></li>
+      <li><a href="#things-to-do">Things To Do</a></li>
+      <li><a href="#streams">Live Streams</a></li>
+      <li><a href="#stay">Places To Stay</a></li>
+      <li><a href="#sponsors">Sponsors</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <span class="hero-eyebrow">American Division • National Tournament</span>
+  <h1>Little Dribblers<br><span class="accent">Nationals 2027</span></h1>
+  <p class="hosted">Hosted by Orangefield Little Dribblers — Orangefield, Texas</p>
+  <p class="dates">March 24–27, 2027</p>
+
+  <div class="scoreboard" role="timer" aria-label="Countdown to tip-off">
+    <div class="sb-label">Countdown to Tip-Off</div>
+    <div class="sb-digits">
+      <div class="sb-cell"><div class="num" id="cd-days">--</div><div class="unit">Days</div></div>
+      <div class="sb-cell"><div class="num" id="cd-hours">--</div><div class="unit">Hours</div></div>
+      <div class="sb-cell"><div class="num" id="cd-mins">--</div><div class="unit">Minutes</div></div>
+      <div class="sb-cell"><div class="num" id="cd-secs">--</div><div class="unit">Seconds</div></div>
+    </div>
+  </div>
+
+  <div class="cta-row">
+    <a class="btn btn-orange" href="#gyms">Gym Locations</a>
+    <a class="btn btn-ghost" href="https://littledribblers.org" target="_blank" rel="noopener">Tournament Brackets</a>
+  </div>
+</header>
+
+<!-- WELCOME + DIVISIONS -->
+<section id="welcome">
+  <div class="section-head">
+    <svg class="arc" viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="19" fill="none" stroke="#F05A1A" stroke-width="4"/><line x1="23" y1="4" x2="23" y2="42" stroke="#F05A1A" stroke-width="4"/></svg>
+    <h2>Welcome to Orangefield</h2>
+  </div>
+  <div class="welcome">
+    <p>On behalf of Orangefield Little Dribblers, we want to welcome you to the 2027 Little Dribblers American Division National Tournament. We are honored to host teams, families, and fans from across the country, and our whole community is working to make this a tournament weekend your players will never forget. We can't wait to see you in Orangefield!</p>
+    <p class="sig">Josh Shores<small>President, Orangefield Little Dribblers<br>409-790-5768 • <a href="mailto:jshores5768@yahoo.com" style="color:var(--orange-dark)">jshores5768@yahoo.com</a></small></p>
+  </div>
+
+  <p class="lede" style="margin-top:2rem;"><strong>12–16 teams</strong> are expected in each bracket, with a <strong>Boys division and a Girls division</strong> in all four age groups:</p>
+  <div class="divisions">
+    <div class="div-chip"><div class="name">Rookies</div><div class="sub">Boys &amp; Girls</div></div>
+    <div class="div-chip"><div class="name">Juniors</div><div class="sub">Boys &amp; Girls</div></div>
+    <div class="div-chip"><div class="name">Majors</div><div class="sub">Boys &amp; Girls</div></div>
+    <div class="div-chip"><div class="name">Seniors</div><div class="sub">Boys &amp; Girls</div></div>
+  </div>
+</section>
+
+<!-- GYMS -->
+<div class="band">
+<section id="gyms">
+  <div class="section-head">
+    <svg class="arc" viewBox="0 0 46 46" aria-hidden="true"><rect x="6" y="10" width="34" height="26" rx="3" fill="none" stroke="#F05A1A" stroke-width="4"/><circle cx="23" cy="23" r="6" fill="none" stroke="#F05A1A" stroke-width="4"/></svg>
+    <h2>Gym Locations</h2>
+  </div>
+  <p class="lede">Games will be played across gyms in Orangefield and neighboring school districts. Division assignments for each gym will be posted here once the schedule is set.</p>
+  <div class="card-grid">
+    <div class="card">
+      <span class="tag">Host Site • 2 Gyms</span>
+      <h3>Orangefield High School</h3>
+      <ul>
+        <li>Competition Gym &amp; Auxiliary Gym</li>
+        <li>10058 FM 105, Orangefield, TX 77639</li>
+        <li>(409) 735-3851</li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=10058+FM+105+Orangefield+TX+77639" target="_blank" rel="noopener">Get directions →</a></li>
+        <li><em>Divisions playing here: TBA</em></li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="tag">1 Gym</span>
+      <h3>Orangefield Junior High</h3>
+      <ul>
+        <li>7745 Sandbar Rd, Orange, TX</li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=7745+Sandbar+Rd+Orange+TX" target="_blank" rel="noopener">Get directions →</a></li>
+        <li><em>Divisions playing here: TBA</em></li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="tag">Partner District</span>
+      <h3>Bridge City ISD</h3>
+      <ul>
+        <li>Bridge City High School</li>
+        <li>2690 Texas Ave, Bridge City, TX 77611</li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=2690+Texas+Ave+Bridge+City+TX+77611" target="_blank" rel="noopener">Get directions →</a></li>
+        <li><em>Specific gym(s) &amp; divisions: TBA</em></li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="tag">Partner District</span>
+      <h3>Vidor ISD</h3>
+      <ul>
+        <li>Vidor High School — 500 Orange St, Vidor, TX 77662</li>
+        <li>Vidor Junior High — 945 N. Tram Rd, Vidor, TX 77662</li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=500+Orange+St+Vidor+TX+77662" target="_blank" rel="noopener">Get directions →</a></li>
+        <li><em>Specific gym(s) &amp; divisions: TBA</em></li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="tag">Partner District</span>
+      <h3>Little Cypress-Mauriceville CISD</h3>
+      <ul>
+        <li>LCM High School</li>
+        <li>7327 Hwy 87 North, Orange, TX 77632</li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=7327+Highway+87+N+Orange+TX+77632" target="_blank" rel="noopener">Get directions →</a></li>
+        <li><em>Specific gym(s) &amp; divisions: TBA</em></li>
+      </ul>
+    </div>
+    <div class="card placeholder">
+      <span class="ph-label">Placeholder</span>
+      <h3>Parking &amp; Gym Rules</h3>
+      <p>Parking instructions, entry doors, seating notes, and gym rules (outside food/drink, noisemakers, cooler policy) will be posted here.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ADMISSIONS -->
+<section id="admissions">
+  <div class="section-head">
+    <svg class="arc" viewBox="0 0 46 46" aria-hidden="true"><rect x="5" y="14" width="36" height="18" rx="4" fill="none" stroke="#F05A1A" stroke-width="4"/><line x1="30" y1="14" x2="30" y2="32" stroke="#F05A1A" stroke-width="4" stroke-dasharray="3 3"/></svg>
+    <h2>Admissions</h2>
+  </div>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Daily Pass</h3>
+      <ul>
+        <li>Good for all gyms, all day</li>
+        <li>Adult: <em>Price TBA</em></li>
+        <li>Child: <em>Price TBA</em></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Tournament Pass</h3>
+      <ul>
+        <li>All four days, all gyms</li>
+        <li>Adult: <em>Price TBA</em></li>
+        <li>Child: <em>Price TBA</em></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Coaches &amp; Players</h3>
+      <ul>
+        <li>Coaches, players, and team staff are admitted <strong>free with tournament credentials</strong>.</li>
+      </ul>
+    </div>
+    <div class="card placeholder">
+      <span class="ph-label">Placeholder</span>
+      <h3>Pricing &amp; Payment</h3>
+      <p>Ticket prices, payment methods (cash/card), and online ticket sales info will be posted here once finalized.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BRACKETS -->
+<div class="band">
+<section id="brackets">
+  <div class="section-head">
+    <svg class="arc" viewBox="0 0 46 46" aria-hidden="true"><path d="M8 8 h10 v10 h-10z M8 28 h10 v10 h-10z M28 18 h10 v10 h-10z" fill="none" stroke="#F05A1A" stroke-width="3"/><path d="M18 13 h5 v18 h5 M18 33 h5" fill="none" stroke="#F05A1A" stroke-width="3"/></svg>
+    <h2>Tournament Brackets &amp; Schedules</h2>
+  </div>
+  <p class="lede" style="color:var(--maple)">Official brackets, game schedules, and locations for all divisions will be posted by the Little Dribblers national office.</p>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Official Brackets</h3>
+      <ul>
+        <li><a href="https://littledribblers.org" target="_blank" rel="noopener">littledribblers.org →</a></li>
+        <li>Game schedules and gym locations will be on this link.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Rules &amp; Resources</h3>
+      <ul>
+        <li><a href="https://littledribblers.org/tournament-rules-1" target="_blank" rel="noopener">Tournament Rules →</a></li>
+        <li><a href="https://littledribblers.org/special-playing-rules" target="_blank" rel="noopener">Special Playing Rules →</a></li>
+        <li><a href="https://littledribblers.org/age-calculator" target="_blank" rel="noopener">Age Calculator →</a></li>
+      </ul>
+    </div>
+    <div class="card placeholder">
+      <span class="ph-label">Placeholder</span>
+      <h3>Direct 2027 Bracket Link</h3>
+      <p>Once the national office posts the 2027 American Division bracket page, this button will link straight to it.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- THINGS TO DO -->
+<section id="things-to-do">
+  <div class="section-head">
+    <svg class="arc" viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="18" r="8" fill="none" stroke="#F05A1A" stroke-width="4"/><path d="M23 26 v14 M13 40 h20" stroke="#F05A1A" stroke-width="4" fill="none"/></svg>
+    <h2>Things To Do in the Area</h2>
+  </div>
+  <p class="lede">Between games, there's plenty to explore around Orange County and Southeast Texas. Local favorites — restaurants, attractions, and family activities — will be featured here.</p>
+  <div class="card-grid">
+    <div class="card placeholder">
+      <span class="ph-label">Placeholder</span>
+      <h3>Local Restaurants</h3>
+      <p>Local dining favorites, with tournament-sponsor restaurants featured first.</p>
+    </div>
+    <div class="card placeholder">
+      <span class="ph-label">Placeholder</span>
+      <h3>Attractions &amp; Activities</h3>
+      <p>Parks, outdoors, and family-friendly attractions in the area.</p>
+    </div>
+    <div class="card placeholder">
+      <span class="ph-label">Placeholder</span>
+      <h3>Chamber of Commerce Guide</h3>
+      <p>Visitor resources from the local Chamber of Commerce / CVB.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE STREAMS -->
+<div class="band">
+<section id="streams">
+  <div class="section-head">
+    <svg class="arc" viewBox="0 0 46 46" aria-hidden="true"><rect x="6" y="12" width="26" height="22" rx="3" fill="none" stroke="#F05A1A" stroke-width="4"/><path d="M32 19 l9 -5 v18 l-9 -5z" fill="none" stroke="#F05A1A" stroke-width="3"/></svg>
+    <h2>Live Streams</h2>
+  </div>
+  <p class="lede" style="color:var(--maple)">Can't make the trip? Games from select gyms will be streamed live. Stream links will be posted here before tip-off.</p>
+  <div class="card-grid">
+    <div class="card placeholder">
+      <span class="ph-label">Placeholder</span>
+      <h3>Streamed Gyms</h3>
+      <p>Streaming will be available from certain gyms. The list of streamed courts will be announced.</p>
+    </div>
+    <div class="card placeholder">
+      <span class="ph-label">Placeholder</span>
+      <h3>Watch Links</h3>
+      <p>Stream provider, links, and whether streams are free or paid will be posted here.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- PLACES TO STAY -->
+<section id="stay">
+  <div class="section-head">
+    <svg class="arc" viewBox="0 0 46 46" aria-hidden="true"><path d="M6 38 V22 L23 8 L40 22 V38" fill="none" stroke="#F05A1A" stroke-width="4"/><rect x="18" y="26" width="10" height="12" fill="none" stroke="#F05A1A" stroke-width="3"/></svg>
+    <h2>Places To Stay</h2>
+  </div>
+  <p class="lede">Host hotels, room blocks, and RV parks for tournament families will be listed here — including booking codes and cut-off dates. Book early: rooms go fast on tournament weekends.</p>
+  <div class="card-grid">
+    <div class="card placeholder">
+      <span class="ph-label">Placeholder</span>
+      <h3>Host Hotels &amp; Room Blocks</h3>
+      <p>Hotel names, addresses, tournament rates, booking codes/links, and cut-off dates.</p>
+    </div>
+    <div class="card placeholder">
+      <span class="ph-label">Placeholder</span>
+      <h3>RV Parks &amp; Rentals</h3>
+      <p>RV parks and short-term rental options in the area.</p>
+    </div>
+    <div class="card placeholder">
+      <span class="ph-label">Placeholder</span>
+      <h3>Housing Coordinator</h3>
+      <p>Contact information for the tournament housing coordinator.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<div class="band">
+<section id="sponsors">
+  <div class="section-head">
+    <svg class="arc" viewBox="0 0 46 46" aria-hidden="true"><path d="M23 6 l5 10 11 1.5 -8 7.5 2 11 -10 -5.5 -10 5.5 2 -11 -8 -7.5 11 -1.5z" fill="none" stroke="#F05A1A" stroke-width="3"/></svg>
+    <h2>Sponsorships</h2>
+  </div>
+  <p class="lede" style="color:var(--maple)">This tournament is made possible by the businesses and families of our community. Sponsor the 2027 Nationals and put your name in front of thousands of visiting fans.</p>
+  <div class="card-grid">
+    <div class="card placeholder">
+      <span class="ph-label">Placeholder</span>
+      <h3>Sponsorship Levels</h3>
+      <p>Sponsorship tiers, pricing, and benefits will be posted here, along with a downloadable sponsor packet.</p>
+    </div>
+    <div class="card placeholder">
+      <span class="ph-label">Placeholder</span>
+      <h3>Our Sponsors</h3>
+      <p>Sponsor logos will be displayed here as sponsors sign on. Thank you for supporting youth basketball!</p>
+    </div>
+    <div class="card">
+      <h3>Become a Sponsor</h3>
+      <ul>
+        <li>Contact: Josh Shores, President OFLD</li>
+        <li><a href="tel:4097905768">409-790-5768</a></li>
+        <li><a href="mailto:jshores5768@yahoo.com">jshores5768@yahoo.com</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer id="contact">
+  <p style="font-family:var(--display);font-size:1.3rem;text-transform:uppercase;letter-spacing:.05em;">Follow the Tournament</p>
+  <div class="socials">
+    <a href="#" aria-disabled="true">Facebook — coming soon</a>
+    <a href="#" aria-disabled="true">Instagram — coming soon</a>
+    <a href="#" aria-disabled="true">#Hashtag — TBA</a>
+  </div>
+  <div class="contact">
+    <strong>Orangefield Little Dribblers</strong><br>
+    Josh Shores, President — <a href="tel:4097905768">409-790-5768</a> — <a href="mailto:jshores5768@yahoo.com">jshores5768@yahoo.com</a>
+  </div>
+  <p class="fine">2027 Little Dribblers American Division National Tournament • March 24–27, 2027 • Orangefield, Texas<br>
+  Orangefield also hosts the 2028 American Division Nationals — this site will be updated for both years.<br>
+  Little Dribblers' Basketball, Inc. — <a href="https://littledribblers.org" style="color:#7C8AAB">littledribblers.org</a></p>
+</footer>
+
+<script>
+  (function(){
+    var target = new Date('2027-03-24T09:00:00-05:00').getTime();
+    var d=document.getElementById('cd-days'),h=document.getElementById('cd-hours'),
+        m=document.getElementById('cd-mins'),s=document.getElementById('cd-secs');
+    function pad(n){return n<10?'0'+n:''+n;}
+    function tick(){
+      var diff = target - Date.now();
+      if(diff<=0){d.textContent='00';h.textContent='00';m.textContent='00';s.textContent='00';
+        document.querySelector('.sb-label').textContent="It's Game Time!";return;}
+      d.textContent=pad(Math.floor(diff/86400000));
+      h.textContent=pad(Math.floor(diff/3600000)%24);
+      m.textContent=pad(Math.floor(diff/60000)%60);
+      s.textContent=pad(Math.floor(diff/1000)%60);
+      setTimeout(tick,1000);
+    }
+    tick();
+  })();
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('sw.js').catch(function(){});
+    });
+  }
+</script>
+</body>
+</html>
