@@ -126,6 +126,14 @@
   #tourney-map{width:100%;height:480px;border-radius:12px;border:3px solid var(--navy);box-shadow:0 6px 20px rgba(20,33,61,.15);}
   .map-note{font-size:.85rem;color:#5A6172;margin-top:.8rem;}
   .leaflet-popup-content b{color:var(--navy);}
+
+  /* ---------- RESTAURANT DIRECTORY ---------- */
+  .restaurant-note{font-size:.85rem;color:#5A6172;margin:1.5rem 0 .8rem;}
+  .restaurant-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.6rem;}
+  .rest-item{background:var(--white);border:1px solid var(--maple-line);border-radius:8px;padding:.7rem .9rem;}
+  .rest-item .rname{font-weight:700;color:var(--navy);font-size:.92rem;display:block;}
+  .rest-item .raddr{font-size:.82rem;color:#5A6172;display:block;margin-top:.15rem;}
+  .rest-item .rphone{font-size:.82rem;color:var(--orange-dark);text-decoration:none;display:inline-block;margin-top:.2rem;}
 </style>
 </head>
 <body>
@@ -528,9 +536,41 @@
     </div>
     <div class="card placeholder">
       <span class="ph-label">Placeholder</span>
-      <h3>Local Restaurant Picks</h3>
-      <p>Local dining favorites will go here, with tournament-sponsor restaurants featured first.</p>
+      <h3>Sponsored Restaurants</h3>
+      <p>Tournament-sponsor restaurants will be featured here first, at the top of the list below.</p>
     </div>
+  </div>
+
+  <p class="restaurant-note">Local restaurants, from the Greater Orange Area Chamber of Commerce directory:</p>
+  <div class="restaurant-grid">
+    <div class="rest-item"><span class="rname">Lucy's Cafe &amp; Bakery</span><span class="raddr">2488 M.L.K. Dr., Orange, TX 77630</span><a class="rphone" href="tel:4098833327">(409) 883-3327</a></div>
+    <div class="rest-item"><span class="rname">Whataburger 830</span><span class="raddr">7241 I H 10, Orange, TX 77630</span><a class="rphone" href="tel:4098838799">(409) 883-8799</a></div>
+    <div class="rest-item"><span class="rname">I-Ten West Diner</span><span class="raddr">2650 Lutcher Drive, Orange, TX 77630</span><a class="rphone" href="tel:4092385004">(409) 238-5004</a></div>
+    <div class="rest-item"><span class="rname">Red's Liquor 16th Street</span><span class="raddr">2948 North 16th Street, Orange, TX 77630</span><a class="rphone" href="tel:4098834222">(409) 883-4222</a></div>
+    <div class="rest-item"><span class="rname">Guadalajara</span><span class="raddr">95 Strickland, Orange, TX 77630</span><a class="rphone" href="tel:4096708114">(409) 670-8114</a></div>
+    <div class="rest-item"><span class="rname">Chicken Express</span><span class="raddr">2250 Texas Ave, Bridge City, TX 77611</span><a class="rphone" href="tel:4097352250">(409) 735-2250</a></div>
+    <div class="rest-item"><span class="rname">Red's Liquor 1442</span><span class="raddr">6311 FM 1442, Orange, TX 77632</span><a class="rphone" href="tel:4097382400">(409) 738-2400</a></div>
+    <div class="rest-item"><span class="rname">Whataburger 536</span><span class="raddr">2300 MacArthur, Orange, TX 77630</span><a class="rphone" href="tel:4098860044">(409) 886-0044</a></div>
+    <div class="rest-item"><span class="rname">Twisted Egg Shack</span><span class="raddr">288 Strickland Dr, Orange, TX 77630</span><a class="rphone" href="tel:4092167132">(409) 216-7132</a></div>
+    <div class="rest-item"><span class="rname">Las Palmas</span><span class="raddr">1912 16th St., Orange, TX 77630</span><a class="rphone" href="tel:4099992459">(409) 999-2459</a></div>
+    <div class="rest-item"><span class="rname">LBS BBQ &amp; Catering LLC</span><span class="raddr">4777 W Roundbunch, Orange, TX 77630</span><a class="rphone" href="tel:4099889152">(409) 988-9152</a></div>
+    <div class="rest-item"><span class="rname">Domino's Pizza — Highway 12</span><span class="raddr">10335 Highway 12 Ste 103, Orange, TX 77630</span><a class="rphone" href="tel:4098861717">(409) 886-1717</a></div>
+    <div class="rest-item"><span class="rname">Dulce Encanto LLC</span><span class="raddr">3300 Western Ave., Orange, TX 77630</span><a class="rphone" href="tel:4092167155">(409) 216-7155</a></div>
+    <div class="rest-item"><span class="rname">Sonic Drive In Mauriceville</span><span class="raddr">11786 Hwy 62 N, Orange, TX 77632</span><a class="rphone" href="tel:4097459014">(409) 745-9014</a></div>
+    <div class="rest-item"><span class="rname">Spanky's Restaurant Bar &amp; Grill</span><span class="raddr">1703 N. 16th Street, Orange, TX 77630</span><a class="rphone" href="tel:4098862949">(409) 886-2949</a></div>
+    <div class="rest-item"><span class="rname">The Hut</span><span class="raddr">1804 N. 16th St., Orange, TX 77630</span><a class="rphone" href="tel:4098838282">(409) 883-8282</a></div>
+    <div class="rest-item"><span class="rname">Domino's Pizza — MacArthur Dr</span><span class="raddr">2107 MacArthur Dr, Orange, TX 77630</span><a class="rphone" href="tel:4098835552">(409) 883-5552</a></div>
+    <div class="rest-item"><span class="rname">Luigi's Italian Grill</span><span class="raddr">3105 Edgar Brown Drive, Orange, TX 77630</span><a class="rphone" href="tel:4098863000">(409) 886-3000</a></div>
+    <div class="rest-item"><span class="rname">Bojangles</span><span class="raddr">5000 IH-10, Orange, TX 77632</span><a class="rphone" href="tel:3462514409">(346) 251-4409</a></div>
+    <div class="rest-item"><span class="rname">Domino's Pizza — Hwy 87</span><span class="raddr">7166 State Hwy 87, Orange, TX 77632</span><a class="rphone" href="tel:4096709696">(409) 670-9696</a></div>
+    <div class="rest-item"><span class="rname">Bliss Box</span><span class="raddr">7247 I-10 East, Orange, TX 77630</span><a class="rphone" href="tel:4098832222">(409) 883-2222</a></div>
+    <div class="rest-item"><span class="rname">The Garden District</span><span class="raddr">7536 Hwy 87 North, Orange, TX 77632</span><a class="rphone" href="tel:4098839889">(409) 883-9889</a></div>
+    <div class="rest-item"><span class="rname">Chick-fil-A Orange</span><span class="raddr">3130 N. 16th Street, Orange, TX 77630</span><a class="rphone" href="tel:4097611231">(409) 761-1231</a></div>
+    <div class="rest-item"><span class="rname">Free State Cellars</span><span class="raddr">4702 Tejas Pkwy, Orange, TX 77632</span><a class="rphone" href="tel:4092217232">(409) 221-7232</a></div>
+    <div class="rest-item"><span class="rname">Old Orange Cafe &amp; Catering Co.</span><span class="raddr">914 W. Division, Orange, TX 77630</span><a class="rphone" href="tel:4098832233">(409) 883-2233</a></div>
+    <div class="rest-item"><span class="rname">Red's Liquor Green Ave.</span><span class="raddr">1201 Green Ave., Orange, TX 77630</span><a class="rphone" href="tel:4098836208">(409) 883-6208</a></div>
+    <div class="rest-item"><span class="rname">Barry's Greek Grill</span><span class="raddr">1720 Lutcher Drive, Orange, TX 77632</span><a class="rphone" href="tel:4094337883">(409) 433-7883</a></div>
+    <div class="rest-item"><span class="rname">Mi Casa</span><span class="raddr">110 Strickland Drive, Orange, TX 77630</span><a class="rphone" href="tel:4098869801">(409) 886-9801</a></div>
   </div>
 </section>
 
