@@ -11,6 +11,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <style>
   :root{
     --orange:#F05A1A;
@@ -114,6 +116,16 @@
   footer .contact{font-size:.95rem;line-height:1.8;}
   footer .contact a{color:var(--orange);text-decoration:none;font-weight:600;}
   footer .fine{margin-top:1.4rem;font-size:.75rem;color:#7C8AAB;}
+
+  /* ---------- MAP ---------- */
+  .map-legend{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1rem;}
+  .map-toggle{display:inline-flex;align-items:center;gap:.5rem;background:var(--white);border:2px solid var(--maple-line);border-radius:999px;padding:.5rem 1rem;font-weight:700;font-size:.85rem;cursor:pointer;user-select:none;transition:background .15s,border-color .15s;}
+  .map-toggle .dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
+  .map-toggle[data-active="true"]{border-color:var(--orange);background:#FFF3EA;}
+  .map-toggle[data-active="false"]{opacity:.45;}
+  #tourney-map{width:100%;height:480px;border-radius:12px;border:3px solid var(--navy);box-shadow:0 6px 20px rgba(20,33,61,.15);}
+  .map-note{font-size:.85rem;color:#5A6172;margin-top:.8rem;}
+  .leaflet-popup-content b{color:var(--navy);}
 </style>
 </head>
 <body>
@@ -130,6 +142,7 @@
       <li><a href="#admissions">Admissions</a></li>
       <li><a href="#brackets">Brackets</a></li>
       <li><a href="#things-to-do">Things To Do</a></li>
+      <li><a href="#map">Map</a></li>
       <li><a href="#streams">Live Streams</a></li>
       <li><a href="#stay">Places To Stay</a></li>
       <li><a href="#sponsors">Sponsors</a></li>
@@ -410,6 +423,99 @@
     </div>
   </div>
 </section>
+
+<!-- INTERACTIVE MAP -->
+<section id="map">
+  <div class="section-head">
+    <svg class="arc" viewBox="0 0 46 46" aria-hidden="true"><path d="M23 4 C14 4 8 11 8 19 C8 30 23 42 23 42 C23 42 38 30 38 19 C38 11 32 4 23 4z" fill="none" stroke="#F05A1A" stroke-width="4"/><circle cx="23" cy="19" r="5" fill="#F05A1A"/></svg>
+    <h2>Tournament Map</h2>
+  </div>
+  <p class="lede">Tap a category below to show or hide it on the map — gyms, sponsored restaurants, and things to do all in one place.</p>
+  <div class="map-legend">
+    <div class="map-toggle" data-layer="gyms" data-active="true"><span class="dot" style="background:#14213D"></span>Gyms</div>
+    <div class="map-toggle" data-layer="restaurants" data-active="true"><span class="dot" style="background:#C74309"></span>Sponsored Restaurants</div>
+    <div class="map-toggle" data-layer="things" data-active="true"><span class="dot" style="background:#2E7D32"></span>Things To Do</div>
+  </div>
+  <div id="tourney-map"></div>
+  <p class="map-note">Pin locations are approximate. Sponsored restaurant pins will appear here as sponsors sign on. Use the "Get Directions" links elsewhere on this site for exact turn-by-turn navigation.</p>
+</section>
+
+<script>
+(function(){
+  var map = L.map('tourney-map', {scrollWheelZoom:false}).setView([29.98, -93.60], 9);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors',
+    maxZoom: 18
+  }).addTo(map);
+
+  function dotIcon(color){
+    return L.divIcon({
+      className: '',
+      html: '<div style="width:18px;height:18px;border-radius:50%;background:'+color+';border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,.4);"></div>',
+      iconSize: [18,18],
+      iconAnchor: [9,9]
+    });
+  }
+
+  var gymIcon = dotIcon('#14213D');
+  var restIcon = dotIcon('#C74309');
+  var thingIcon = dotIcon('#2E7D32');
+
+  var gyms = [
+    {name:"Orangefield High School", note:"Competition &amp; Auxiliary Gym", lat:30.0561, lng:-93.8517},
+    {name:"Orangefield Junior High", note:"1 Gym", lat:30.0715, lng:-93.8607},
+    {name:"Bridge City High School", note:"Bridge City ISD", lat:30.0286, lng:-93.8494},
+    {name:"Vidor High School", note:"Vidor ISD", lat:30.1305, lng:-93.9994},
+    {name:"LCM High School", note:"Little Cypress-Mauriceville CISD", lat:30.1244, lng:-93.7590}
+  ];
+
+  var restaurants = []; // placeholder — sponsored restaurant pins added here as sponsors sign on
+
+  var things = [
+    {name:"Shangri La Botanical Gardens", note:"Orange, TX — free admission", lat:30.0919, lng:-93.7477},
+    {name:"Stark Museum of Art / W.H. Stark House", note:"Orange, TX", lat:30.0930, lng:-93.7357},
+    {name:"Gator Country Adventure Park", note:"Beaumont, TX", lat:30.0700, lng:-94.1907},
+    {name:"Fire Museum of Texas", note:"Beaumont, TX", lat:30.0802, lng:-94.1266},
+    {name:"Tyrrell Park (Cattail Marsh &amp; Botanical Gardens)", note:"Beaumont, TX", lat:30.0387, lng:-94.1454},
+    {name:"Museum of the Gulf Coast", note:"Port Arthur, TX", lat:29.8949, lng:-93.9400},
+    {name:"Pleasure Island / Sea Rim State Park", note:"Port Arthur, TX", lat:29.8800, lng:-93.9300},
+    {name:"Port Wonder", note:"Lake Charles, LA", lat:30.2270, lng:-93.2140},
+    {name:"Creole Nature Trail", note:"Southwest Louisiana", lat:29.8500, lng:-93.3500},
+    {name:"Almosta Ranch / SPAR Waterpark", note:"Sulphur, LA", lat:30.2350, lng:-93.3773}
+  ];
+
+  var layers = { gyms: [], restaurants: [], things: [] };
+
+  gyms.forEach(function(g){
+    var m = L.marker([g.lat, g.lng], {icon: gymIcon}).bindPopup('<b>'+g.name+'</b><br>'+g.note);
+    layers.gyms.push(m);
+  });
+  restaurants.forEach(function(r){
+    var m = L.marker([r.lat, r.lng], {icon: restIcon}).bindPopup('<b>'+r.name+'</b><br>'+r.note);
+    layers.restaurants.push(m);
+  });
+  things.forEach(function(t){
+    var m = L.marker([t.lat, t.lng], {icon: thingIcon}).bindPopup('<b>'+t.name+'</b><br>'+t.note);
+    layers.things.push(m);
+  });
+
+  Object.keys(layers).forEach(function(key){
+    layers[key].forEach(function(m){ m.addTo(map); });
+  });
+
+  document.querySelectorAll('.map-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var key = btn.getAttribute('data-layer');
+      var active = btn.getAttribute('data-active') === 'true';
+      var next = !active;
+      btn.setAttribute('data-active', next);
+      layers[key].forEach(function(m){
+        if(next){ m.addTo(map); } else { map.removeLayer(m); }
+      });
+    });
+  });
+})();
+</script>
 
 <!-- LIVE STREAMS -->
 <div class="band">
