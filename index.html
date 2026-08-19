@@ -129,6 +129,21 @@
 
   /* ---------- RESTAURANT DIRECTORY ---------- */
   .restaurant-note{font-size:.85rem;color:#5A6172;margin:1.5rem 0 .8rem;}
+
+  /* ---------- SPONSOR BANNER ---------- */
+  .sponsor-banner{background:var(--maple);border-top:1px solid var(--maple-line);border-bottom:1px solid var(--maple-line);padding:1.6rem 1.25rem;}
+  .sponsor-banner-inner{max-width:1100px;margin:0 auto;text-align:center;}
+  .sponsor-banner .sb-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-dark);margin-bottom:1rem;}
+  .sponsor-tier-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1rem;margin-bottom:1rem;}
+  .sponsor-tier-row:last-of-type{margin-bottom:0;}
+  .sponsor-slot{display:flex;align-items:center;justify-content:center;background:var(--white);border:2px dashed var(--maple-line);border-radius:8px;color:#9A8F7C;font-weight:700;font-size:.75rem;letter-spacing:.04em;text-transform:uppercase;text-align:center;padding:.5rem;}
+  .sponsor-slot.gold{width:180px;height:90px;font-size:.8rem;border-color:#D4A017;}
+  .sponsor-slot.silver{width:140px;height:70px;border-color:#9AA5B1;}
+  .sponsor-slot.bronze{width:110px;height:56px;font-size:.68rem;border-color:#B08D57;}
+  .sponsor-slot img{max-width:100%;max-height:100%;object-fit:contain;}
+  .sponsor-banner .sb-cta{margin-top:1rem;font-size:.85rem;color:#5A6172;}
+  .sponsor-banner .sb-cta a{color:var(--orange-dark);font-weight:700;text-decoration:none;}
+  .sponsor-banner .sb-cta a:hover{text-decoration:underline;}
   .restaurant-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.6rem;}
   .rest-item{background:var(--white);border:1px solid var(--maple-line);border-radius:8px;padding:.7rem .9rem;}
   .rest-item .rname{font-weight:700;color:var(--navy);font-size:.92rem;display:block;}
@@ -180,6 +195,29 @@
     <a class="btn btn-ghost" href="https://littledribblers.org" target="_blank" rel="noopener">Tournament Brackets</a>
   </div>
 </header>
+
+<!-- SPONSOR BANNER -->
+<div class="sponsor-banner">
+  <div class="sponsor-banner-inner">
+    <div class="sb-eyebrow">Proudly Supported By Our Sponsors</div>
+    <div class="sponsor-tier-row">
+      <div class="sponsor-slot gold">Gold Sponsor</div>
+      <div class="sponsor-slot gold">Gold Sponsor</div>
+    </div>
+    <div class="sponsor-tier-row">
+      <div class="sponsor-slot silver">Silver Sponsor</div>
+      <div class="sponsor-slot silver">Silver Sponsor</div>
+      <div class="sponsor-slot silver">Silver Sponsor</div>
+    </div>
+    <div class="sponsor-tier-row">
+      <div class="sponsor-slot bronze">Bronze</div>
+      <div class="sponsor-slot bronze">Bronze</div>
+      <div class="sponsor-slot bronze">Bronze</div>
+      <div class="sponsor-slot bronze">Bronze</div>
+    </div>
+    <div class="sb-cta">Interested in sponsoring? <a href="#get-involved">See sponsorship opportunities →</a></div>
+  </div>
+</div>
 
 <!-- WELCOME + DIVISIONS -->
 <section id="welcome">
