@@ -1,7 +1,7 @@
 {
   "name": "Orangefield Little Dribblers Nationals 2027",
   "short_name": "OF Nationals",
-  "description": "2027 Little Dribblers American Division National Tournament - Orangefield, TX - March 24-27, 2027",
+  "description": "2027 Little Dribblers American & National Division Tournament - Orangefield, TX - March 24-27, 2027",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
